@@ -5,7 +5,7 @@ plugins {
     application
 }
 
-group = "org.example"
+group = "github.jizhi.ocp.randomcheck"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -14,6 +14,9 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("com.alibaba.fastjson2:fastjson2-kotlin:2.0.12")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
 
 tasks.test {
