@@ -1,6 +1,6 @@
 package github.jizhi.ocp.randomcheck.entity
 
-import com.alibaba.fastjson2.annotation.JSONField
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * @author  JiZhi
@@ -8,42 +8,51 @@ import com.alibaba.fastjson2.annotation.JSONField
  * @version  V1.0
  **/
 data class GroupMemberList(
+    @JsonProperty("age")
     var age: String? = null,
 
-    val area: String? = null,
+    @JsonProperty("area")
+    var area: String? = null,
 
-    val card: String? = null,
+    @JsonProperty("card")
+    var card: String? = null,
 
-    @JSONField(name = "card_changeable")
-    val cardChangeable: Boolean? = null,
+    @JsonProperty("card_changeable")
+    var cardChangeable: Boolean? = null,
 
-    @JSONField(name = "group_id")
-    val groupId: String? = null,
+    @JsonProperty("group_id")
+    var groupId: String? = null,
 
-    @JSONField(name = "join_time")
-    val joinTime: String? = null,
+    @JsonProperty("join_time")
+    var joinTime: String? = null,
 
-    @JSONField(name = "last_sent_time")
-    val lastSentTime: String? = null,
+    @JsonProperty("last_sent_time")
+    var lastSentTime: String? = null,
 
-    val level: String? = null,
+    @JsonProperty("level")
+    var level: String? = null,
 
-    val nickname: String? = null,
+    @JsonProperty("nickname")
+    var nickname: String? = null,
 
-    val role: String? = null,
+    @JsonProperty("role")
+    var role: String? = null,
 
-    val sex: String? = null,
+    @JsonProperty("sex")
+    var sex: String? = null,
 
-    @JSONField(name = "shut_up_timestamp")
-    val shutUpTimestamp: String? = null,
+    @JsonProperty("shut_up_timestamp")
+    var shutUpTimestamp: String? = null,
 
-    val title: String? = null,
+    @JsonProperty("title")
+    var title: String? = null,
 
-    @JSONField(name = "title_expire_time")
-    val titleExpireTime: String? = null,
+    @JsonProperty("title_expire_time")
+    var titleExpireTime: String? = null,
 
-    val unfriendly: Boolean? = null,
+    @JsonProperty("unfriendly")
+    var unfriendly: Boolean? = null,
 
-    @JSONField(name = "user_id")
-    val userId: String? = null
+    @JsonProperty("user_id")
+    var userId: String? = null
 )

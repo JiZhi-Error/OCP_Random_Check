@@ -1,6 +1,6 @@
 package github.jizhi.ocp.randomcheck.entity
 
-import com.alibaba.fastjson2.annotation.JSONField
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * @author JiZhi
@@ -8,24 +8,24 @@ import com.alibaba.fastjson2.annotation.JSONField
  * @date 2021/11/26 15:21
  **/
 data class GroupInfo(
-    @JSONField(name = "group_create_time")
+    @JsonProperty("group_create_time")
     private var groupCreateTime: String? = null,
 
-    @JSONField(name = "group_id")
-    private val groupId: String? = null,
+    @JsonProperty("group_id")
+    private var groupId: String? = null,
 
-    @JSONField(name = "group_level")
-    private val groupLevel: String? = null,
+    @JsonProperty("group_level")
+    private var groupLevel: String? = null,
 
-    @JSONField(name = "group_memo")
-    private val groupMemo: String? = null,
+    @JsonProperty("group_memo")
+    private var groupMemo: String? = null,
 
-    @JSONField(name = "group_name")
-    private val groupName: String? = null,
+    @JsonProperty("group_name")
+    private var groupName: String? = null,
 
-    @JSONField(name = "max_member_count")
-    private val maxMemberCount: String? = null,
+    @JsonProperty("max_member_count")
+    private var maxMemberCount: String? = null,
 
-    @JSONField(name = "member_count")
-    private val memberCount: String? = null
+    @JsonProperty("member_count")
+    private var memberCount: String? = null
 )
