@@ -29,7 +29,7 @@ object Main {
         val title = args[2]
         val groupNumber = args[3]
         val randomNum = args[4]
-        val administratorName = args[5]
+        var promptMessage = args[5]
         val isDebug = args.size == 7
 
         val retrofit = Retrofit.Builder().client(OkHttpClient().newBuilder().addInterceptor {
@@ -80,16 +80,16 @@ object Main {
             val member = memberLists[it]
             val qq = member.userId!!
             whiteList.list.add(Member(qq, System.currentTimeMillis()))
-            msg.append("[CQ:at,qq=")
-            msg.append(qq)
-            msg.append("] ")
-
+            msg.append("[CQ:at,qq=$qq]")
         }
-        msg.append(
-            "\n${createRandomStr1(4)}今日份随机抽查${createRandomStr1(4)}以上小伙伴把${createRandomStr1(4)}查找手机界面截图发给 “${administratorName}” 哦${
-                createRandomStr1(4)
-            }，我${createRandomStr1(4)}只是工具人${createRandomStr1(4)}"
-        )
+
+        val replaceNum = promptMessage.split("@R@").size
+
+        for (index in 0..replaceNum) {
+            promptMessage = promptMessage.replaceFirst("@R@", createRandomStr1(4))
+        }
+        // 改成replace解析，高度自定义提示字符串
+        msg.append(promptMessage)
 
         val group = apiService.sendMsg("group", "", groupNumber, msg.toString(), isDebug).execute()
 
