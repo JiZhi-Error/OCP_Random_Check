@@ -1,8 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     kotlin("jvm") version "1.7.10"
     application
+    id("com.github.johnrengelman.shadow").version("7.1.2")
 }
 
 group = "github.jizhi.ocp.randomcheck"
@@ -28,5 +30,11 @@ tasks.withType<KotlinCompile> {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("github.jizhi.ocp.randomcheck.Main")
+}
+tasks.withType<ShadowJar> {
+    manifest.attributes.apply {
+        put("Implementation-Version", archiveVersion)
+        put("Main-Class", "github.jizhi.ocp.randomcheck.Main")
+    }
 }
